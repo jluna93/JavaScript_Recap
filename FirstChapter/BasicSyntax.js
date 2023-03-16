@@ -1,13 +1,16 @@
-//First block of code
-alert("Executing first code block!");
 
-//Second block of code
-alert("Executing second code block!");
+function basicSyntaxDemo(){
+    //First block of code
+    alert("Executing first code block!");
 
-//Third block of code
-alert("Executing third code block! Now we are going to add two number, (1 + 3 = ?) calling the function doCalc(1,3)");
-let resultOfOperation = doCalc(1,3);
-alert("And the result is " + resultOfOperation);
+    //Second block of code
+    alert("Executing second code block!");
+
+    //Third block of code
+    alert("Executing third code block! Now we are going to add two number, (1 + 3 = ?) calling the function doCalc(1,3)");
+    let resultOfOperation = doCalc(1,3);
+    alert("And the result is " + resultOfOperation);
+}
 
 //Declaring a function
 //A function is a portion of code you can use  anytime and anywhere if accessible
