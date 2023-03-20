@@ -9,25 +9,37 @@
     <script src="objects.js"></script>
 </head>
 <body>
-    <h1>Objects</h1>
-    <h2>How handy are they!</h2>
-    <hr />
-
-    <h3> Key Notes</h3>
-    <ul class="notes">
-        <li>Variables are cool, but they only hold one value at time, so, sometimes you need to hold more complex data than just numbers or single strings.
-            That's where objects are in action. They can hold a group of data.  </li>
-        <li> Its important to take in mind that there are two types of objects: Native and Host</li>
-        <li> Native objects are part of JavaScript, and in a more board way to say it, part of the ECMAScript standard. Or if you want to get more technical, are "built-in" in JS language</li>
-        <li> Example of Native objects are Array, Promise, JSON</li>
-        <li> Host objects are part of the environment that your code runs in, like in a server, desktop client or mobile client. </li>
-        <li> Example of Host objects are Window, document, history...</li>
-        <li> Think an object as a 'thing', like in real life, objects in real life have detail... like color, size. In JS the 'details' of an object are called properties</li>
-        <li> To access to a property of an object use the dot notation, like <span class="example-code">nameOfObject.property</span></li>
-        <li> So, if you want to save a value of a propertie of an object you will do, for example, the title of the current page <span class="example-code"> let value = document.title;</span> (See Demo 1)</li>
-        <li> To update a value of an object, you can do it like accessing to the property and the assignt it a new value like you would to a normal variable. <span class="example-code"> document.title = 'lol surprise';</span> (See demo 1) </li>
-        <li> Objects has methods too. This methods are functions that work, process information using the properties like for example, if you want to find something in your html document searching by ID you would do <span class="example-code">let myIdElement = document.getElementById('element');</span></li>
-        <li> As you can see, methods has parameters, that's the stuff that goes between '()', and is a way to give methods something to work with, if needed!</li>
-    </ul> 
+    <div class="head-page-container">
+        <div class="head-page-content">
+            <h1>Objects</h1>
+            <h2>How handy are they!</h2>
+        </div>
+    </div>
+    <div class="content-page-container">
+        <div class="content-page-text">
+            
+            <h3> Key Notes</h3>
+            <hr/>
+            <ul class="notes">
+                <li>Variables are cool, but they only hold one value at time, so, sometimes you need to hold more complex data than just numbers or single strings.
+                    That's where objects are in action. They can hold a group of data.  </li>
+                <li> Its important to take in mind that there are two types of objects: Native and Host</li>
+                <li> Native objects are part of JavaScript, and in a more board way to say it, part of the ECMAScript standard. Or if you want to get more technical, are "built-in" in JS language</li>
+                <li> Example of Native objects are Array, Promise, JSON</li>
+                <li> Host objects are part of the environment that your code runs in, like in a server, desktop client or mobile client. </li>
+                <li> Example of Host objects are Window, document, history...</li>
+                <li> Think an object as a 'thing', like in real life, objects in real life have detail... like color, size. In JS the 'details' of an object are called properties</li>
+                <li> To access to a property of an object use the dot notation, like <span class="example-code">nameOfObject.property</span></li>
+                <li> So, if you want to save a value of a propertie of an object you will do, for example, the title of the current page <span class="example-code"> let value = document.title;</span> (See Demo 1)</li>
+                <li> To update a value of an object, you can do it like accessing to the property and the assignt it a new value like you would to a normal variable. <span class="example-code"> document.title = 'lol surprise';</span> (See demo 1) </li>
+                <li> Objects has methods too. This methods are functions that work, process information using the properties like for example, if you want to find something in your html document searching by ID you would do <span class="example-code">let myIdElement = document.getElementById('element');</span></li>
+                <li> As you can see, methods has parameters, that's the stuff that goes between '()', and is a way to give methods something to work with, if needed!</li>
+                <li> Arrays are an special native object of JS. They hold a group of data as stack plates, each plate represent an element or data. </li>
+                <li> There are two ways of declare them (arrays)! <span class="example-code">let myArray1 =  new Array();</span> or <span class="example-code">let myArray2 = [];</span></li>
+                <li> There are two ways of adding data to them! <span class="example-code"> myArray1.push(1);</span> or using the index <span class="example-code">myArray2[0] = 1;</span></li>
+                <li> You can get the length of an array using the method <span class="example-code">myArray1.length;</span></li>
+            </ul> 
+        </div>
+    </div>
 </body>
 </html>

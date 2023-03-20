@@ -1,17 +1,32 @@
 /*Default settings*/
 body {
     font-family: Arial, Helvetica, sans-serif;
-    margin-left: 25px;
-    margin-right: 25px;
-    margin-top: 25px;
+    background-color: #ededed;
+    color:#434444;
+    text-shadow: 1px 1px 2px #d1b3b3;
+}
 
+a {
+    color: rgb(255, 0, 0);
+}
+
+a:visited {
+    color: rgb(255, 3, 179);
+}
+
+a:hover{
+    color:blue;
 }
 
 .example-code{
     font-family: Lucida Console;
     font-size: small;
     font-weight: bold;
-    color:purple;
+    color:rgb(122, 8, 122);
+    text-shadow: 1px 1px 1px #9a6792;
+ 
+    padding-left: 2px;
+
 }
 
 .notes > li {
@@ -42,4 +57,31 @@ body {
 
 .keyword{
     font-weight: bolder;
+}
+
+.head-page-container{
+    background-color: #B52D2D;
+    color:aliceblue;
+    text-shadow: 1px 1px 2px #635B5B;
+    border-radius: 5px;
+    box-shadow: -1px 0px 17px -1px rgba(151,151,151,0.74);
+    -webkit-box-shadow: -1px 0px 17px -1px rgba(151,151,151,0.74);
+    -moz-box-shadow: -1px 0px 17px -1px rgba(151,151,151,0.74);
+   
+
+}
+
+.head-page-content{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 10px;
+}
+
+.content-page-container{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+   
 }

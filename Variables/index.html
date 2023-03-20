@@ -9,49 +9,59 @@
     <script src="variables.js"></script>
 </head>
 <body>
-    <h1>Variables</h1>
-    <h2>All you wanted to know about variables</h2>
-    <hr />
+    <div class="head-page-container">
+        <div class="head-page-content">
+            <h1>Variables</h1>
+            <h2>All you wanted to know about variables</h2>
+           
+        </div>
+    </div>
 
-    <h3> Key Notes</h3>
-    <ul class="notes">
-        <li> A variable is like a container. It's purpose is to hold a value or piece of information for you. </li>
-        <li> The most basic declaration is using the keyword "var" like <span class="example-code">var example = "Hello!";</span></li>
-        <li> Certainly you can give your variable any name, as long you don't use JS keywords or special characters. Avoid using numbers at the beginning too! (Ex: <span class="example-code">var 1nameOfVar = 0;</span> would be a invalid variable declaration)</li>
-        <li> Sometimes, you will have the need to have data that is strictly no neeeded to change and stay constant in the whole execution of the code. Then you can use a constant, like <span class="example-code"> const R = 3.1415;</span></li>
-        <li> In a way, there are variables that only exist or can be only used in a single block code, and here it enters in game the keyword <span class="example-code">let</span>.
-             in fact, is suggested to declare your variables using that keyword rather than using <span class="example-code">var</span>. Because sometimes you can forgot about a variable, and later
-             it can give you some confusion or errors do the lack of context that <span class="example-code">var</span> can be capable. (See <span class="demo-link" onclick="demo1();">Demo 1</span>). 
-             For example in the following code, you see that we create a variable using the <span class="example-code">let</span> keyword in the for loop block code. if you try to use that variable later after that block of code, you can see the variable doesn't exist anymore:
-                <pre class="example-code">
-                    for (let i = 0; i < 10; i++) {
-                        console.log(i); //output = numbers between 0 and 9
-                    }
-                      console.log(i); //error i is undefined, it means it doesnt exist outside the block where was created                
-                </pre>
-             if you create a for loop block code using the <span class="example-code">var</span> keyword, then you can see that after that mentioned code block, you can still use that same variable and it even mantains the same last value that it got assigned!:
-                <pre class="example-code">
-                    for(var z=0; z < 10; z++) {
-                        console.log(z);
-                    }
-                
-                    console.log(typeof(z)); //z is defined as number. So it became global as soon we created it as "var" and available everywhere!
-                </pre>
-        </li>
-        <li> So, basically the difference between <span class="example-code">let</span> and <span class="example-code">var</span> is the <span class="keyword">hoisting</span>. <span class="example-code">var</span> hoist the variable and <span class="example-code">let</span> not, this means that,
-             wherever you declare a <span class="example-code">var</span>, this will be hoisted to the top, it will be a global variable automatically and accessible from everywhere; 
-             and this doesn't happens with <span class="example-code">let</span>. At first glance, one can would think that "wow, var is easier to use!" but realistically, this in bigger codes can be rather problematic, as
-             there are a lot of functions and variables in game!
-             Thus, is very suggested and encouraged to use the keyword <span class="example-code">let</span> in projects.</li> 
-        <li> You can use Strict Mode to use a more strict JavaScript for your projects using the line <span class="example-code">use strict;</span> Using strict mode ensures that the browser will execute your code in the most efficient way possible and give you the most amount of feedback when errors occur. 
-            for example, it practically obligates you to declare your variables properly. Like for example in non-strict mode, you can declare a variable by just writing <span class="example-code">x = 0;</span> and no using keywords. In Strict Mode, this would throw an error. 
-        </li>
-    </ul>
-    <hr/>
-    <h3> Demos </h3>
-    <p>To see the code and the logs, use Web Dev tools, to achieve this in Chrome, right click and select the "Inspect" option!</p>
-    <ul>
-        <li id="demo1"> <span class="demo-button" onclick="demo1();">Demo 1</span> - <span class="example-code">let</span> and <span class="example-code">var</span> differences / Variables That Can Only Be Used in a Single Code Block  </li>
-    </ul>
+    <div class="content-page-container">
+        <div class="content-page-text">
+            <h3> Key Notes</h3>
+            <hr />
+            <ul class="notes">
+                <li> A variable is like a container. It's purpose is to hold a value or piece of information for you. </li>
+                <li> The most basic declaration is using the keyword "var" like <span class="example-code">var example = "Hello!";</span></li>
+                <li> Certainly you can give your variable any name, as long you don't use JS keywords or special characters. Avoid using numbers at the beginning too! (Ex: <span class="example-code">var 1nameOfVar = 0;</span> would be a invalid variable declaration)</li>
+                <li> Sometimes, you will have the need to have data that is strictly no neeeded to change and stay constant in the whole execution of the code. Then you can use a constant, like <span class="example-code"> const R = 3.1415;</span></li>
+                <li> In a way, there are variables that only exist or can be only used in a single block code, and here it enters in game the keyword <span class="example-code">let</span>.
+                    in fact, is suggested to declare your variables using that keyword rather than using <span class="example-code">var</span>. Because sometimes you can forgot about a variable, and later
+                    it can give you some confusion or errors do the lack of context that <span class="example-code">var</span> can be capable. (See <span class="demo-link" onclick="demo1();">Demo 1</span>). 
+                    For example in the following code, you see that we create a variable using the <span class="example-code">let</span> keyword in the for loop block code. if you try to use that variable later after that block of code, you can see the variable doesn't exist anymore:
+                        <pre class="example-code">
+                            for (let i = 0; i < 10; i++) {
+                                console.log(i); //output = numbers between 0 and 9
+                            }
+                            console.log(i); //error i is undefined, it means it doesnt exist outside the block where was created                
+                        </pre>
+                    if you create a for loop block code using the <span class="example-code">var</span> keyword, then you can see that after that mentioned code block, you can still use that same variable and it even mantains the same last value that it got assigned!:
+                        <pre class="example-code">
+                            for(var z=0; z < 10; z++) {
+                                console.log(z);
+                            }
+                        
+                            console.log(typeof(z)); //z is defined as number. So it became global as soon we created it as "var" and available everywhere!
+                        </pre>
+                </li>
+                <li> So, basically the difference between <span class="example-code">let</span> and <span class="example-code">var</span> is the <span class="keyword">hoisting</span>. <span class="example-code">var</span> hoist the variable and <span class="example-code">let</span> not, this means that,
+                    wherever you declare a <span class="example-code">var</span>, this will be hoisted to the top, it will be a global variable automatically and accessible from everywhere; 
+                    and this doesn't happens with <span class="example-code">let</span>. At first glance, one can would think that "wow, var is easier to use!" but realistically, this in bigger codes can be rather problematic, as
+                    there are a lot of functions and variables in game!
+                    Thus, is very suggested and encouraged to use the keyword <span class="example-code">let</span> in projects.</li> 
+                <li> You can use Strict Mode to use a more strict JavaScript for your projects using the line <span class="example-code">use strict;</span> Using strict mode ensures that the browser will execute your code in the most efficient way possible and give you the most amount of feedback when errors occur. 
+                    for example, it practically obligates you to declare your variables properly. Like for example in non-strict mode, you can declare a variable by just writing <span class="example-code">x = 0;</span> and no using keywords. In Strict Mode, this would throw an error. 
+                </li>
+            </ul>
+
+            <h3> Demos </h3>
+            <hr />
+            <p>To see the code and the logs, use Web Dev tools, to achieve this in Chrome, right click and select the "Inspect" option!</p>
+            <ul>
+                <li id="demo1"> <span class="demo-button" onclick="demo1();">Demo 1</span> - <span class="example-code">let</span> and <span class="example-code">var</span> differences / Variables That Can Only Be Used in a Single Code Block  </li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
