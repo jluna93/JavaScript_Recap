@@ -30,15 +30,56 @@
                 <li> Example of Host objects are Window, document, history...</li>
                 <li> Think an object as a 'thing', like in real life, objects in real life have detail... like color, size. In JS the 'details' of an object are called properties</li>
                 <li> To access to a property of an object use the dot notation, like <span class="example-code">nameOfObject.property</span></li>
-                <li> So, if you want to save a value of a propertie of an object you will do, for example, the title of the current page <span class="example-code"> let value = document.title;</span> (See Demo 1)</li>
+                <li> So, if you want to save a value of a property of an object you will do, for example, the title of the current page <span class="example-code"> let value = document.title;</span> (See Demo 1)</li>
                 <li> To update a value of an object, you can do it like accessing to the property and the assignt it a new value like you would to a normal variable. <span class="example-code"> document.title = 'lol surprise';</span> (See demo 1) </li>
                 <li> Objects has methods too. This methods are functions that work, process information using the properties like for example, if you want to find something in your html document searching by ID you would do <span class="example-code">let myIdElement = document.getElementById('element');</span></li>
                 <li> As you can see, methods has parameters, that's the stuff that goes between '()', and is a way to give methods something to work with, if needed!</li>
-                <li> Arrays are an special native object of JS. They hold a group of data as stack plates, each plate represent an element or data. </li>
+                <li> Arrays are an special native object of JS. They hold a group of data as stack plates, each plate represent an element or data. From here, all code discussed here you can see them in action on Demo 2! </li>
                 <li> There are two ways of declare them (arrays)! <span class="example-code">let myArray1 =  new Array();</span> or <span class="example-code">let myArray2 = [];</span></li>
                 <li> There are two ways of adding data to them! <span class="example-code"> myArray1.push(1);</span> or using the index <span class="example-code">myArray2[0] = 1;</span></li>
                 <li> You can get the length of an array using the method <span class="example-code">myArray1.length;</span></li>
+                <li> To going through all the content of an array, you can use the function <span class="example-code">Array.forEach()</span> Example: 
+                 <pre class="example-code"> 
+                    myArray.forEach((value, index, array) => {
+                        console.log(value); //current value
+                        console.log(index); //current index
+                        console.log(array); //entire array
+                    });</pre>
+                </li>
+                <li> To filter the array and create a new Array with the filtered content you can use <span class="example-code">Array.filter()</span> Example (filtering odd numbers):
+                    <pre class="example-code">
+                        let myArray2oddNumbers = myArray2.filter((value,index,array)=>{
+                            if(value % 2){
+                                console.log('myArray2[' + index + '] = ' + value);
+                                return value;
+                            }
+                        });                    
+                    </pre>
+                </li>
+                <li> To modify each element of the array you can use <span class="example-code">Array.map()</span> Example (adding +5 to each element):
+                    <pre class="example-code">
+                        let myArray1plus5 = myArray1.map((value,currentValue,currentIndex,array) => {
+                            return value + 5;
+                        });
+                    </pre>
+                </li>
+                <li> To create a single value by adding all values of the array you can use <span class="example-code">Array.reduce()</span> Example:
+                    <pre class="example-code">
+                        const initialValue = 0;
+                        let myArray2Single = myArray2.reduce((accomulator,currentValue)=> accomulator + currentValue,initialValue);
+                    </pre>
+                </li>
             </ul> 
+
+            
+            <h3> Demos </h3>
+            <hr />
+            <p>To see the code and the logs, use Web Dev tools, to achieve this in Chrome, right click and select the "Inspect" option!</p>
+            <ul class="demos-list">
+                <li id="demo1"> <span class="demo-button" onclick="demo1();">Demo 1</span> - Showing how to access to an object's property and how to updated it.</li>
+                <li id="demo2"> <span class="demo-button" onclick="demo2Arrays();">Demo 2</span> - Showing some methods of <span class="example-code">Array()</span> .</li>
+                <li id="demo3"> <span class="demo-button" onclick="demo3exercise();">Demo 3</span> - Exercise : Given an array of numbers, how do you remove all duplicates and return only unique values?</li>
+            </ul>
         </div>
     </div>
 </body>
