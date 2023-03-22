@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="functions.js"></script>
+</head>
+<body>
+    <div class="head-page-container">
+        <div class="head-page-content">
+            <h1>Functions</h1>
+            <h2>Be an ecological programmer and Re-use!</h2>
+        </div>
+    </div>
+    <div class="content-page-container">
+        <div class="content-page-text">
+            
+            <h3> Key Notes</h3>
+            <hr/>
+            <ul class="notes">
+                <li>Functions are a way to keep portions of code contained. And you can reuse them as many time as you need</li>
+                <li>To declare a function you need three things: 
+                    <ul>
+                        <li>Name of the function</li>
+                        <li>(Optional) List of arguments/input data to work with.</li>
+                        <li> Code that will perfom the operation on data, all enclosed with "{}" curly braces</li>
+                    </ul>
+                </li>
+                <li>So in code, this how a basic function declaration looks like (function that returns the sum of two parameters):
+                    <ul>
+                        <li><pre class="example-code">
+                            function nameOfFunction(optionalParam1,optionalParam2){
+                                //code goes here like ex:
+    
+                                let result = optionalParam1 + optionalParam2;
+                                return result;
+                            }
+                        </pre></li>
+                        <li>You can see this function in action on Demo 1</li>
+                    </ul>
+                </li>
+                <li>A common way to say when you are going to use a function is: "To call a function"</li>
+                <li>To call a function you just use the name and the parenthesis, and if the function needs params or argument to work, give it some data, ex:
+                    <ul>
+                        <li><span class="example-code">nameOfFunction(1,2);</span></li>
+                        <li>if function doesnt have any param leave the "()" in blank like <span class="example-code">otherFunction();</span></li>
+                    </ul>
+                </li>
+                <li>In the previous example there's that keyword <span class="example-code">return</span>. This js keywords means that the function will return a value to where the function is called.
+                    <ul>
+                        <li>In the case of the example of the function <span class="example-code">nameOfFunction(optionalParam1,optionalParam2)</span>, you can see it "returns" the variable <span class="example-code">result</span></li>
+                        <li>And before that line of code, you see that <span class="example-code">result</span> is declared and initialized asi <span class="example-code">let result = optionalParam1 + optionalParam2;</span></li>
+                        <li>So, for example if you call the function <span class="example-code">nameOfFunction(optionalParam1,optionalParam2)</span> as follows : <span class="example-code">nameOfFunction(1,2);</span>, it will return the value of 3.</li>
+                        <li>Again, you can see this in action on Demo 1</li>
+                        <li> Note: is not always neccesary to use the <span class="example-code">return</span> keyword in your functions, it's optional and is just needed when you need that your function returns a value of a certain operation.</li>
+                    </ul>
+                </li>
+                <li>Another way to declare a function is through vars. (remember that almost everything in JS is an object), for example let's declare a function that does the exponentiation operation:
+                    <ul>
+                        <li><span class="example-code">const exponetialOp = function(number,exponential){ return Math.pow(number,exponential); }</span></li>
+                        <li>Altough you created the previous function through a variable, in this case, a const, you still call that function as you would do with a normal function as :</li>
+                        <li>For example, calling the function to do the 5^2 operation would be like <span class="example-code">exponentialOp(5,2);</span></li>
+                        <li>This type of functions (declaring them through a variable) are called function expressions.</li>
+                    </ul>
+                </li>
+
+                
+
+
+
+            </ul> 
+
+            
+            <h3> Demos </h3>
+            <hr />
+            <p>To see the code and the logs, use Web Dev tools, to achieve this in Chrome, right click and select the "Inspect" option!</p>
+            <ul class="demos-list">
+                <li id="demo1"> <span class="demo-button" onclick="demo1();">Demo 1</span> - Showing how the basic function in action!.</li>
+                
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
