@@ -66,9 +66,105 @@
                         <li>This type of functions (declaring them through a variable) are called function expressions.</li>
                     </ul>
                 </li>
+                <li>Arrow function is a shorter way of creating function expressions
+                    <ul>
+                        <li>Example of basic arrow function <span class="example-code">const arrowFunction = (num1,num2) => { num1 + num2 };</span></li>
+                        <li>In the previous example, you see the parameters/arguments, followed by an arrow "=>", then the curly braces "{}" and inside there, the code. </li>
+                        <li>If the code inside the arrow function is just only one line of code, it will <span class="example-code">return</span> the value automatically. (implicit return)</li>
+                        <li>If there's only one argument, you could declare your function expressions without "()" like <span class="example-code">const arrowFunction = num1 => num1 + 2;</span> </li>
+                        <li>If there isnt any argument you could either skip the parenthesis or leave it in blank like <span class="example-code">const arrowFunction = => 3*2;</span> or <span class="example-code">const arrowFunction = () => 3*2;</span></li>
+                        <li>Remember that if your code block is more than one line of code and you want to <span class="example-code">return</span> a value, you will need the keyword return, implicit return only works when the code block is just one line.
+                            <pre class="example-code">
+                                const arrowFunction = (num1,num2) => {
+                                    let sum = num1 + num2;
+                                    return sum;
+                                };
+                            </pre>
+                        </li>
+                        <li>Remember that if you want to return an object literal in an arrow function, you will need to put on your code some parenthesis, otherwise it wouldn't work like:
+                            <pre class="example-code">
+                                const arrowFunction = () => ({firstName:'lol'});
+                            </pre>
+                        </li>
+                    </ul>
+                </li>
+                <li>Let's talk about <span class="example-code">this</span> keyword
+                    <ul>
+                        <li>I REPEAT, <span class >this</span> is a keyword!, not a variable nor an object or something you can declare!  </li>
+                        <li>So... say... what is <span class="example-code">this</span>? Basically <span class="example-code">this</span> keyword refers or points to an object. Which object you say?  it depends:</li>
+                        <li>By itself alone or inside a function, it refers to the "global object", global object changes depending on where your JS code is running. if your JS code is running in a client browser, it will point you to the <i>window</i> object. In strict mode, it will just return you an "undefined". (See demo3)</li>
+                        <li>In an object method, <span class="example-code">this</span> refers to the object. (See demo 4) For example, we have the following function, inside that function we have an object called 
+                            <span class="example-code">piObj</span>. That object has a property called <span class="example-code">pi</span> and a method called <span class="example-code">getPi</span>. 
+                            That method returns the value of the property <span class="example-code"> pi</span>. To refer to that property inside the object we use <span class="example-code">this.pi</span> 
+                            <pre class="example-code">
+                                const scopeFunction = () => {
 
-                
+                                    let piObj = {
+                                        pi:3.14159265359,
+                                        getPi: function() { return this.pi; }
+                                    };
+                                
+                                    console.log(piObj.getPi());
 
+                                };
+                            </pre>
+                        </li>
+                        <li>In an event, <span class="example-code">this</span> refers to the element that the event receives (more of this in ...)</li>
+                    </ul>
+                </li>
+                <li>Execution context: Environment that handles and executes  JS code. 
+                    <ul>
+                        <li>The execution context contains the code that's currently running and everything that aids to its execution</li>
+                        <li>There are two kinds of Execution context:
+                            <ul>
+                                <li>Global Execution Context (GEC) : Whenever the JavaScript engine receives a script file, it first creates this default execution context. It's where all JavaScript code that is not inside of a function gets executed.</li>
+                                <li>Function Execution Context (FEC) : When you call to a function.  JS engine creates a special Execution context called Function Execution Context within the Global Execution Context to run the code inside that function.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>When calling a function, depending on where did you call that function will define the execution context of that function. So, this is why <span class="example-code">this</span> varies</li>
+                <li>In a way, functions are "objects" to in JS, so basically, functions have methods too, and there are methods to control the context of the object: <span class="example-code">bind()</span>,<span class="example-code">call()</span> and <span class="example-code">apply()</span></li>
+                <li>With <span class="example-code">bind()</span> you can set a different starting point for your functions. For example, if you create an object, then if you create a function using the <span class="example-code">this</span> keyword, by default, <span class="example-code">this</span> will point to the global object. But using<span class="example-code">bind()</span> you can set the object as starting point as the following example: (see Demo 5)
+                    <pre class="example-code">
+                        let myObject = { 
+                            firstName:"Steve",
+                            lastName:"Irwin"
+                        };
+
+                        function myFunction() { console.log("Hi I'm " + this.firstName + " "+ this.lastName ) }
+                        myFunction(); <span class="comment">//will print on console: "Hi I'm undefined undefined"</span>
+                  
+                        let myBindFunction = myFunction.bind(myObject);
+                        myBindFunction(); <span class="comment">//will print on console: "Hi I'm Steve Irwin"</span>
+                        
+                    </pre>
+                </li>
+                <li>With <span class="example-code">call()</span>, aside from changing the context, you can pass information (See Demo 6)
+                    <pre class="example-code">
+                        function meetBiologist(message) { console.log('Hey! Meet ' + this.firstName + ' '+ this.lastName + '! This person has the following message for you: ' + message) }
+
+                        const biologist = { 
+                            firstName:"Steve",
+                            lastName:"Irwin"
+                        };
+                    
+                        meetBiologist.call(biologist,"Take care of my cocodriles!"); <span class="comment">//Will print to console: 'Hey! Meet Steve Irwin! This person has the following message for you: Take care of my cocodriles!'</span>
+                    </pre>
+                </li>
+                <li><span class="example-code">apply()</span> is more of the same than <span class="example-code">call()</span>, but with arrays: (See Demo 7)
+                    <pre class="example-code">
+                        function meetTheOffice(firstName,secondName,thirdName){
+                            console.log(this.message, firstName);
+                            console.log(this.message, secondName);
+                            console.log(this.message, thirdName);
+                        }
+                        
+                        const greet = { message:'Hello '};
+                    
+                        meetTheOffice.apply(greet,["Michael Scott", "Pam", "Jim"]);
+                    </pre>
+                </li>
 
 
             </ul> 
@@ -79,7 +175,13 @@
             <p>To see the code and the logs, use Web Dev tools, to achieve this in Chrome, right click and select the "Inspect" option!</p>
             <ul class="demos-list">
                 <li id="demo1"> <span class="demo-button" onclick="demo1();">Demo 1</span> - Showing how the basic function in action!.</li>
-                
+                <li id="demo2"> <span class="demo-button" onclick="demo2();">Demo 2</span> - Showing how the basic function expression in action!.</li>
+                <li id="demo3"> <span class="demo-button" onclick="demo3();">Demo 3</span> - Showing how this works if used as alone.</li>
+                <li id="demo4"> <span class="demo-button" onclick="demo4();">Demo 4</span> - Showing how this changes depending on where's called </li>
+                <li id="demo5"> <span class="demo-button" onclick="demo5();">Demo 5</span> - Showing how to use bind().</li>
+                <li id="demo6"> <span class="demo-button" onclick="demo6();">Demo 6</span> - Showing how to use call().</li>
+                <li id="demo7"> <span class="demo-button" onclick="demo7();">Demo 7</span> - Showing how to use apply().</li>
+
             </ul>
         </div>
     </div>

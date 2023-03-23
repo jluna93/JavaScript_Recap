@@ -29,9 +29,18 @@ a:hover{
 
 }
 
+.example-code > .comment {
+    color: green;
+}
+
 .notes > li {
     margin-bottom: 10px;
 }
+
+.notes > li > ul > li {
+    margin-bottom: 5px;
+}
+
 
 .demo-button{
     font-size: large;
