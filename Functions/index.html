@@ -165,7 +165,49 @@
                         meetTheOffice.apply(greet,["Michael Scott", "Pam", "Jim"]);
                     </pre>
                 </li>
+                <li> Normally when you create a function, the variables and functions inside it  are not accessible to the outer scope of it.  But, using "closures" you can make those vars. and functions inside the function accessible outside of it
+                    <ul>
+                        <li>The following example shows how to create a function with a variable and a function accessible from outside (closure), see Demo 8 to see this in action: </li>
+                        <li> <pre class="example-code"> 
+                            const myId = function(){
+                                let myData ={
+                                    firstName: "",
+                                    lastName: "",
+                                    yearOfBirth: 0
+                                };
+                            
+                                function setData(firstName, lastName, yearOfBirth){
+                                    myData["firstName"] = firstName;
+                                    myData["lastName"] = lastName;
+                                    myData["yearOfBirth"] = yearOfBirth;
+                                }
+                            
+                                return {
+                                    setMyData : function(firstName,lastName,yearOfBirth) { setData(firstName,lastName,yearOfBirth); },
+                                    getMyData : function() { return myData; }
+                                }
+                            };
+                            
+                            const Jorge_Data = myId();
+                            Jorge_Data.setMyData("Jorge", "Luna", 1993);
+                        
+                            const Dary_Data = myId();
+                            Dary_Data.setMyData("Dary", "Esquivel", 1994);
+                        
+                            console.log(Jorge_Data.getMyData());
+                            console.log(Dary_Data.getMyData());
+                        </pre></li>
+                        <li>Let's review the previous code. As you can see, we create a function expression called myId.</li>
+                        <li>Then, we add inside that function a var called <span class="example-code">myId</span> that holds some basic personal data, and a function called <span class="example-code">setData</span> that allows us to modify the data of <span class="example-code">myId</span></li>
+                        <li>This variable and function are not accessible from outside the function. So... how do we access to them?</li>
+                        <li>This is where fun begins. Remember <span class="example-code">return</span> keyword? you can also return objects with methods/functions. </li> 
+                        <li>So, in this case we return an object with two methods, <span class="example-code">setMyData</span> that access to <span class="example-code">setData</span> function, and <span class="example-code">getMyData</span> that returns the value of <span class="example-code">myData</span></li>
+                        <li> Then you can use the function as you like. As it returns an object. You can use it in two different instances, and methods will do the same thing, but it will return different stuff as you can see in the example. </li>
+                        <li> Basically, you can use functions with closure to create an object template and re use it whenever you like. MAN! IT'S LIKE CLASSES AND OBJECTS IN OOP Programming!!!</li>
 
+                    </ul>
+
+                </li>
 
             </ul> 
 
@@ -181,7 +223,7 @@
                 <li id="demo5"> <span class="demo-button" onclick="demo5();">Demo 5</span> - Showing how to use bind().</li>
                 <li id="demo6"> <span class="demo-button" onclick="demo6();">Demo 6</span> - Showing how to use call().</li>
                 <li id="demo7"> <span class="demo-button" onclick="demo7();">Demo 7</span> - Showing how to use apply().</li>
-
+                <li id="demo8"> <span class="demo-button" onclick="demo7();">Demo 7</span> - Showing a closure in action.</li>
             </ul>
         </div>
     </div>

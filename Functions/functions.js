@@ -121,3 +121,44 @@ function demo7(){
     meetTheOffice.apply(greet,["Michael Scott", "Pam", "Jim"]);
 }
 
+
+//Clousures
+function demo8(){
+
+    //Let's create a function
+    const myId = function(){
+        //Variable that holds some basic values. By itself, is not accessible to outer scope.
+        let myData ={
+            firstName: "",
+            lastName: "",
+            yearOfBirth: 0
+        };
+    
+        //Function that sets values to the previous variable myData. By itself, is not accessible to outer scope.
+        function setData(firstName, lastName, yearOfBirth){
+            myData["firstName"] = firstName;
+            myData["lastName"] = lastName;
+            myData["yearOfBirth"] = yearOfBirth;
+        }
+    
+        //We return two functions that allow us to access to the inner vars and functions of the myId function, that now works more like an object with props and methods.
+        return {
+            setMyData : function(firstName,lastName,yearOfBirth) { setData(firstName,lastName,yearOfBirth); },
+            getMyData : function() { return myData; }
+        }
+    };
+    
+    //Using the myId Function.
+
+    const Jorge_Data = myId();
+    Jorge_Data.setMyData("Jorge", "Luna", 1993);
+
+    const Dary_Data = myId();
+    Dary_Data.setMyData("Dary", "Esquivel", 1994);
+
+    console.log(Jorge_Data.getMyData());
+    console.log(Dary_Data.getMyData());
+
+    //This is so powerful, as you can see. We could create two different objects using the same myId function! this is like classes in OOP!!!!
+}
+
