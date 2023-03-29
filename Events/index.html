@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Objects</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../style.css">
     <script src="events.js"></script>
 </head>
@@ -24,6 +26,84 @@
             <ul class="notes">
                 <li>Events are things that happen. Like a page loading, click on a button, etc. </li>
                 <li>With JavaScript you can "listen" to those events and then execute a function based on that event.</li>
+                <li> All in all, the basic structure to add an event :
+                    <pre class="example-code">
+                        let yourObject = [<i>code to get your object here, like by Id, by Class, by Name, etc...</i>];
+                        yourObject.addEventListener("[<i>event type, ie: click</i>]", function(){});
+
+                    </pre>
+                </li>
+                <li> A functional example would be the following code: After the DOM is fully loaded and parsed, show a message on a div (Demo 1 is the execution of this example):
+                    <pre class="example-code">
+                        
+                       document.addEventListener("DOMContentLoaded", function(){
+                            let myDiv = document.getElementById("msgContainer");
+                            myDiv.innerHTML = "Hello world!";
+                       });
+
+                    </pre>
+
+
+                </li>
+                <li><span class="example-code">addEventListener</span> is a method included in almost all objects on JS, not only 
+                    <span class="example-code">document</span> has it. Let's display a message in a div after you click on a button! (See a similar example on Demo 2)
+                    <pre class="example-code">
+
+                        document.addEventListener("DOMContentLoaded", function(){
+                            let myButton = document.getElementById("button");
+                            myButton.addEventListener("click",function(){
+                                let myDiv = document.getElementById("msgContainer");
+                                myDiv.innerHTML = "Hello world!";
+                            });
+                        });
+
+                    </pre>
+                </li>
+                <li> Remember that when you are working with events, the scope is the object that triggered the event, so <span class="example-code">this</span> is pointing to that object. For example, if you want to get the id of the button that is clicked, you can use <span class="example-code">this</span> (no pun intended, see Demo 4 by the way) :
+                    <pre class="example-code">
+                        let demoButton = document.getElementById("demoButton");
+
+                        demoButton.addEventListener("click", function(){
+                            let idOfButton = this.id;
+                            console.log("Id of Button clicked: " + idOfButton")
+                        });
+                    </pre>
+                </li>
+
+                <li>If you want to get more info about the event that's happening and work with it, you can use the Event Object. The event object gets passed to the event handler function when an event happens. This object contains information about the event that just happened. Example:
+                    <pre class="example-code">
+                        let demoButton = document.getElementById("demoButton");
+                        demoButton.addEventListener("click", function(e){
+                            let eventInfo = e;
+                            console.log(e);
+                        });
+                    </pre>
+                </li>
+
+                <li>Sometimes, browser perform certain events by default. like if you click a link, the browser will redirect you to another page, you can override or stop that default behavior using <span class="example-code">eventObject.preventDefault</span>:
+                    <pre class="example-code">
+                        let demoLink = document.getElementById("myLink");
+                        demoButton.addEventListener("click", function(e){
+                            e.preventDefault();
+                            let eventInfo = e;
+                            console.log(e);
+                        });
+                    </pre>
+                </li>
+                <li>Event bubbling: When an event happens on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors. </li>
+                <li>An example of code to see bubbling in action would do as follow:
+                    <pre class="example-code">
+                        document.addEventListener("DOMContentLoaded", function(){
+                            let demoButton4 = document.getElementById("demoButton4");
+                            let demoContainer = document.getElementById("demoContainer");
+
+                            demoButton4.addEventListener("click",function(){console.log(this.id + " clicked")});
+                            demoContainer.addEventListener("click",function(){console.log(this.id + " clicked")});
+                            document.addEventListener("click",function(){console.log("document clicked")});
+                            window.addEventListener("click",function(){console.log("window clicked")});
+                        });
+                    </pre>
+                </li>
 
             </ul> 
 
@@ -31,12 +111,99 @@
             
             <h3> Demos </h3>
             <hr />
-            <p>To see the code and the logs, use Web Dev tools, to achieve this in Chrome, right click and select the "Inspect" option!</p>
-            <ul class="demos-list">
-                <li id="demo1"> <span class="demo-button" onclick="demo1();">Demo 1</span> - Showing how to access to an object's property and how to updated it.</li>
-                <li id="demo2"> <span class="demo-button" onclick="demo2Arrays();">Demo 2</span> - Showing some methods of <span class="example-code">Array()</span> .</li>
-                <li id="demo3"> <span class="demo-button" onclick="demo3exercise();">Demo 3</span> - Exercise : Given an array of numbers, how do you remove all duplicates and return only unique values?</li>
-            </ul>
+      
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-header">
+                                    <div id="msgContainer">!!!!</div>
+                                </div>
+                                <div class="card-body">
+                                  <h5 class="card-title">Demo 1 - DOMContentLoaded</h5>
+                                  <p class="card-text">Text modifies after event of document "DOMContentLoaded"</p>
+                    
+                                </div>
+                              </div>
+                    </div>
+
+                    <div class="col-md-4">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-header">
+                                    <div id="msgContainer2">[Your message will appear here!]</div>
+                                </div>
+                                <div class="card-body">
+                                  <h5 class="card-title">Demo 2 - Click!</h5>
+                                  <p class="card-text">Triggering a function after a click event on a button</p>
+                            
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><input type="text" id="demoMessage" placeholder="Type a message here" value=""/></li>
+                                    <li class="list-group-item"><div class="btn btn-primary special-button" id="demoButton"> Show typed message!</div></li>
+                                </ul>
+                            </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-header">
+                                <div id="msgContainer3">[Events with the button will appear here.]</div>
+                            </div>
+                            <div class="card-body">
+                              <h5 class="card-title">Demo 3 - Multi-eventos!</h5>
+                              <p class="card-text">Adding three distinct listeners to a single DOM object. Try clicking, putting you mouse in or out of the button below!</p>
+                        
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><div class="btn btn-primary special-button" id="demoButton2"> Click or hover!</div></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-header">
+                                <div id="msgContainer4">[Events with the button will appear here.]</div>
+                            </div>
+                            <div class="card-body">
+                              <h5 class="card-title">Demo 4 - Event object and <span class="example-code">this</span></h5>
+                              <p class="card-text">Using the event object and <span class="example-code">this</span> (to get the id of the clicked object) in an event. Take a look to the console look (inspect the page) to see more info about the event object when you click the button!.</p>
+                        
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><div  class="btn btn-primary special-button" id="demoButton3"> Click !</div></li>
+                            </ul>
+                        </div> 
+                        
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-header">
+                                <div id="msgContainer5"></div>
+                            </div>
+                            <div class="card-body">
+                              <h5 class="card-title">Demo 5 - Like the waves when you throw a rock in a lake! </h5>
+                              <p class="card-text"> Event bubbling principle: When an event happens on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors. </p>
+                        
+                            </div>
+                            <ul  class="list-group list-group-flush">
+                                <li class="list-group-item" id="demoContainer">
+                                    <div class="btn btn-primary special-button" id="demoButton4"> Click !</div>
+                                </li>
+                                <li class="list-group-item" id="demoContainer">
+                                    <div class="btn btn-primary special-button" id="demoButton4Cleaner"> Clean!</div>
+                                </li>
+                            </ul>
+                        </div> 
+                        
+                    </div>
+                </div>
+                
+            </div>
+
+     
         </div>
     </div>
 </body>

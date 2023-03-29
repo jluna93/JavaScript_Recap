@@ -19,10 +19,10 @@ a:hover{
 }
 
 .example-code{
-    font-family: Lucida Console;
-    font-size: small;
-    font-weight: bold;
-    color:rgb(122, 8, 122);
+    font-family: Lucida Console !important; 
+    font-size: small !important;
+    font-weight: bold !important;
+    color:rgb(122, 8, 122) !important;
     /* text-shadow: 1px 1px 1px #9a6792;
   */
     padding-left: 2px;
@@ -97,4 +97,8 @@ a:hover{
     padding-left: 15px;
     padding-right: 15px;
    
+}
+
+.special-button{
+    cursor: pointer;
 }
